@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bridging the Measurability Gap</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <h1>Kartavya</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#login" class="btn">Login</a></li>
+          <li>
+            <select id="language-switcher" onchange="changeLanguage()">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+              <option value="es">Español</option>
+              <!-- Add more languages as needed -->
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <h2>Bridging the Measurability Gap</h2>
+        <p>
+          Your digital solution for validated Citizens Charter adherence across
+          public interfaces and touchpoints of the Department of Posts.
+        </p>
+        <a href="#features" class="btn">Explore Features</a>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <h2>About the Project</h2>
+      <p>
+        This digital solution bridges the measurability gap by validating
+        adherence to Citizens Charter norms across public interfaces and
+        customer touchpoints of the Department of Posts.
+      </p>
+    </section>
+
+    <section id="features" class="features-section">
+      <h2>Features</h2>
+      <div class="feature-cards">
+        <div class="feature-card">
+          <a href="upload.html">
+            <h3>Report an Issue</h3>
+            <p>
+              Structured feedback forms for assessing service quality and
+              adherence to standards.
+            </p>
+          </a>
+        </div>
+        <div class="feature-card">
+          <a href="analytics.html">
+            <h3>Analytics Dashboard</h3>
+            <p>
+              Real-time insights and data visualization for better
+              decision-making.
+            </p>
+          </a>
+        </div>
+        <div class="feature-card">
+          <a href="survey.html">
+            <h3>Survey</h3>
+            <p>Public services survey for improvements.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+
+    <footer>
+      <div class="sticky-footer">
+        <marquee
+          >To report an issue, please contact us toll-free at
+          1800-123-4567</marquee
+        >
+      </div>
+      <p>&copy; 2024 Bridging the Measurability Gap. All rights reserved.</p>
+    </footer>
+    <script>
+      const translations = {
+        en: {
+          home: "Home",
+          about: "About",
+          features: "Features",
+          contact: "Contact",
+          login: "Login",
+          heroTitle: "Bridging the Measurability Gap",
+          heroDescription:
+            "Your digital solution for validated Citizens Charter adherence across public interfaces and touchpoints of the Department of Posts.",
+          aboutDescription:
+            "This digital solution bridges the measurability gap by validating adherence to Citizens Charter norms across public interfaces and customer touchpoints of the Department of Posts.",
+          reportIssue: "Report an Issue",
+          analytics: "Analytics Dashboard",
+          survey: "Survey",
+          contactUs: "Contact Us",
+          yourName: "Your Name",
+          yourEmail: "Your Email",
+          yourMessage: "Your Message",
+          sendMessage: "Send Message",
+          footer: "© 2024 Bridging the Measurability Gap. All rights reserved.",
+        },
+        hi: {
+          home: "घर",
+          about: "के बारे में",
+          features: "विशेषताएँ",
+          contact: "संपर्क करें",
+          login: "लॉगिन करें",
+          heroTitle: "मापनीयता अंतर को पाटना",
+          heroDescription:
+            "सार्वजनिक इंटरफेस और डाक विभाग के ग्राहक टचपॉइंट्स के बीच नागरिक चार्टर की वैधता का समाधान।",
+          aboutDescription:
+            "यह डिजिटल समाधान नागरिक चार्टर मानकों के पालन को मान्य करने के लिए मापनीयता अंतर को पाटता है।",
+          reportIssue: "समस्या रिपोर्ट करें",
+          analytics: "विश्लेषण डैशबोर्ड",
+          survey: "सर्वेक्षण",
+          contactUs: "संपर्क करें",
+          yourName: "आपका नाम",
+          yourEmail: "आपका ईमेल",
+          yourMessage: "आपका संदेश",
+          sendMessage: "संदेश भेजें",
+          footer: "© 2024 मापनीयता अंतर को पाटना। सर्वाधिकार सुरक्षित।",
+        },
+        es: {
+          home: "Inicio",
+          about: "Acerca de",
+          features: "Características",
+          contact: "Contacto",
+          login: "Iniciar sesión",
+          heroTitle: "Cerrando la Brecha de Medibilidad",
+          heroDescription:
+            "Su solución digital para la adhesión validada a la Carta de Ciudadanos en interfaces públicas y puntos de contacto del Departamento de Correos.",
+          aboutDescription:
+            "Esta solución digital cierra la brecha de medibilidad validando la adhesión a las normas de la Carta de Ciudadanos.",
+          reportIssue: "Reportar un Problema",
+          analytics: "Panel de Análisis",
+          survey: "Encuesta",
+          contactUs: "Contáctenos",
+          yourName: "Tu Nombre",
+          yourEmail: "Tu Correo Electrónico",
+          yourMessage: "Tu Mensaje",
+          sendMessage: "Enviar Mensaje",
+          footer:
+            "© 2024 Cerrando la Brecha de Medibilidad. Todos los derechos reservados.",
+        },
+      };
+
+      function changeLanguage() {
+        const lang = document.getElementById("language-switcher").value;
+        document.querySelector(".nav-links li:nth-child(1) a").textContent =
+          translations[lang].home;
+        document.querySelector(".nav-links li:nth-child(2) a").textContent =
+          translations[lang].about;
+        document.querySelector(".nav-links li:nth-child(3) a").textContent =
+          translations[lang].features;
+        document.querySelector(".nav-links li:nth-child(4) a").textContent =
+          translations[lang].contact;
+        document.querySelector(".nav-links li:nth-child(5) a").textContent =
+          translations[lang].login;
+
+        document.querySelector(".hero-content h2").textContent =
+          translations[lang].heroTitle;
+        document.querySelector(".hero-content p").textContent =
+          translations[lang].heroDescription;
+        document.querySelector(".about-section p").textContent =
+          translations[lang].aboutDescription;
+
+        document.querySelectorAll(".feature-card h3")[0].textContent =
+          translations[lang].reportIssue;
+        document.querySelectorAll(".feature-card h3")[1].textContent =
+          translations[lang].analytics;
+        document.querySelectorAll(".feature-card h3")[2].textContent =
+          translations[lang].survey;
+
+        document.querySelector(".contact-section h2").textContent =
+          translations[lang].contactUs;
+        document.querySelector(
+          ".contact-section input[placeholder='Your Name']"
+        ).placeholder = translations[lang].yourName;
+        document.querySelector(
+          ".contact-section input[placeholder='Your Email']"
+        ).placeholder = translations[lang].yourEmail;
+        document.querySelector(
+          ".contact-section textarea[placeholder='Your Message']"
+        ).placeholder = translations[lang].yourMessage;
+        document.querySelector(".contact-section button").textContent =
+          translations[lang].sendMessage;
+
+        document.querySelector("footer p").textContent =
+          translations[lang].footer;
+      }
+    </script>
+  </body>
+</html>

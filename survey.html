@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Issues Survey</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        background: #003366;
+        color: #fff;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .navbar h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #003366;
+        text-align: center;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      select,
+      textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+
+      .btn {
+        background: #0066cc;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .btn:hover {
+        background: #005bb5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Local Issues Survey</h1>
+    </div>
+
+    <div class="container">
+      <h2>We Want to Hear from You!</h2>
+      <form id="surveyForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Your Email:</label>
+        <input type="text" id="email" name="email" required />
+
+        <label for="issue">Select the Issue You Are Facing:</label>
+        <select id="issue" name="issue" required>
+          <option value="">--Select an Issue--</option>
+          <option value="water_supply">Water Supply Problems</option>
+          <option value="road_condition">Poor Road Conditions</option>
+          <option value="waste_management">Waste Management Issues</option>
+          <option value="public_transport">Public Transport Issues</option>
+          <option value="healthcare">Healthcare Accessibility</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="additionalComments">Additional Comments:</label>
+        <textarea
+          id="additionalComments"
+          name="additionalComments"
+          rows="4"
+        ></textarea>
+
+        <button type="submit" class="btn">Submit Survey</button>
+      </form>
+    </div>
+
+    <script>
+      // Handle form submission
+      document
+        .getElementById("surveyForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Prevent default form submission
+
+          // Get form data
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const issue = document.getElementById("issue").value;
+          const additionalComments =
+            document.getElementById("additionalComments").value;
+
+          // Here you can add code to send this data to your server
+          console.log("Form submitted:", {
+            name,
+            email,
+            issue,
+            additionalComments,
+          });
+          alert("Thank you for your feedback!");
+
+          // Clear form fields
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

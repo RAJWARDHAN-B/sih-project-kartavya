@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report an Issue</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        color: #003366;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-group input[type="file"] {
+        border: none;
+      }
+
+      .submit-btn {
+        background: #0066cc;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: background 0.3s ease;
+      }
+
+      .submit-btn:hover {
+        background: #005bb5;
+      }
+
+      .preview-image {
+        margin-top: 10px;
+        max-width: 100%;
+        max-height: 200px;
+        display: none;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Report an Issue</h2>
+      <form>
+        <div class="form-group">
+          <label for="file-upload">Upload Image:</label>
+          <input type="file" id="file-upload" accept="image/*" />
+          <img id="preview" class="preview-image" alt="Image Preview" />
+        </div>
+
+        <div class="form-group">
+          <label for="issue-title">Issue Title:</label>
+          <input type="text" id="issue-title" placeholder="Enter issue title" />
+        </div>
+
+        <div class="form-group">
+          <label for="state">State:</label>
+          <select id="state">
+            <option value="" disabled selected>Select State</option>
+            <!-- Replace with dynamic data -->
+            <option value="maharashtra">Maharashtra</option>
+            <option value="karnataka">Karnataka</option>
+            <option value="gujarat">Gujarat</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="district">District:</label>
+          <select id="district">
+            <option value="" disabled selected>Select District</option>
+            <!-- Replace with dynamic data -->
+            <option value="pune">Pune</option>
+            <option value="bangalore">Bangalore</option>
+            <option value="ahmedabad">Ahmedabad</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City:</label>
+          <select id="city">
+            <option value="" disabled selected>Select City</option>
+            <!-- Replace with dynamic data -->
+            <option value="pune">Pune City</option>
+            <option value="bangalore">Bangalore City</option>
+            <option value="ahmedabad">Ahmedabad City</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="taluka">Taluka:</label>
+          <select id="taluka">
+            <option value="" disabled selected>Select Taluka</option>
+            <!-- Replace with dynamic data -->
+            <option value="haveli">Haveli</option>
+            <option value="magadi">Magadi</option>
+            <option value="daskroi">Daskroi</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="area">Area:</label>
+          <select id="area">
+            <option value="" disabled selected>Select Area</option>
+            <!-- Replace with dynamic data -->
+            <option value="shivaji-nagar">Shivaji Nagar</option>
+            <option value="majestic">Majestic</option>
+            <option value="vastrapur">Vastrapur</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("file-upload");
+      const previewImage = document.getElementById("preview");
+
+      // Handle file selection
+      fileInput.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            previewImage.src = e.target.result;
+            previewImage.style.display = "block";
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+  </body>
+</html>

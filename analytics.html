@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar {
+        background: #003366;
+        color: #fff;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+
+      .container {
+        display: flex;
+      }
+
+      .sidebar {
+        background: #002244;
+        color: #fff;
+        width: 250px;
+        padding: 20px;
+        height: 100vh;
+      }
+
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .sidebar ul li {
+        margin: 15px 0;
+      }
+
+      .sidebar ul li a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .main-content {
+        flex: 1;
+        padding: 20px;
+      }
+
+      h2 {
+        color: #003366;
+      }
+
+      .stat-cards {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      .stat-card {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        flex: 1;
+        margin: 0 10px;
+      }
+
+      .chart-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .table-container {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+      }
+
+      th {
+        background: #003366;
+        color: #fff;
+      }
+
+      .promises-section {
+        margin-top: 20px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .promises-section h2 {
+        margin-bottom: 15px;
+      }
+
+      .promises-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .promises-table th,
+      .promises-table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .promises-table th {
+        background: #003366;
+        color: #fff;
+      }
+      .wall-of-fame {
+        padding: 20px 200px;
+        background-color: #003366;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        margin: 20px auto; /* Center the section itself */
+        max-width: 800px; /* Set a maximum width */
+        text-align: center; /* Center align text */
+      }
+
+      .user-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center; /* Center the user cards horizontally */
+      }
+
+      .user-card {
+        background-color: #f0f8ff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        width: calc(33% - 20px); /* Adjust card width for 3 in a row */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .user-card:hover {
+        background-color: #fff;
+      }
+      .user-card h3 {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Analytics Dashboard</h1>
+    </div>
+
+    <div class="container">
+      <div class="sidebar">
+        <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">User Management</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+
+      <div class="main-content">
+        <h2>Overview</h2>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <h3>Total Reports</h3>
+            <p>150</p>
+          </div>
+          <div class="stat-card">
+            <h3>Resolved Issues</h3>
+            <p>100</p>
+          </div>
+          <div class="stat-card">
+            <h3>Pending Issues</h3>
+            <p>50</p>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <h2>Issue Trend</h2>
+          <canvas id="issueTrendChart" width="400" height="200"></canvas>
+          <!-- Placeholder for chart -->
+        </div>
+
+        <div class="table-container">
+          <h2>Recent Issues</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Issue ID</th>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Date Reported</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>Water Leakage in Area A</td>
+                <td>Resolved</td>
+                <td>2024-09-30</td>
+              </tr>
+              <tr>
+                <td>002</td>
+                <td>Street Light Malfunction</td>
+                <td>Pending</td>
+                <td>2024-10-01</td>
+              </tr>
+              <tr>
+                <td>003</td>
+                <td>Pothole in Road B</td>
+                <td>Pending</td>
+                <td>2024-10-02</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="promises-section">
+          <h2>Government Promises</h2>
+          <table class="promises-table">
+            <thead>
+              <tr>
+                <th>Promise</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Promise of Metro in Pune</td>
+                <td>Under Construction</td>
+              </tr>
+              <tr>
+                <td>Improvement of Public Toilets</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>New Park Development</td>
+                <td>In Progress</td>
+              </tr>
+              <tr>
+                <td>Installation of Solar Street Lights</td>
+                <td>Pending</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <section id="wall-of-fame" class="wall-of-fame">
+      <h2>Wall of Fame</h2>
+      <div class="user-list" id="user-list">
+        <!-- User entries will be populated here -->
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById("issueTrendChart").getContext("2d");
+      const issueTrendChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+          ],
+          datasets: [
+            {
+              label: "Reported Issues",
+              data: [10, 20, 15, 30, 25, 35, 45],
+              borderColor: "rgba(0, 102, 204, 1)",
+              backgroundColor: "rgba(0, 102, 204, 0.2)",
+              fill: true,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        const userList = document.getElementById("user-list");
+
+        // Sample data: replace this with your actual data
+        const users = [
+          { name: "Aditya", issuesReported: 15 },
+          { name: "Bhavika", issuesReported: 12 },
+          { name: "Piyush", issuesReported: 10 },
+          { name: "Sakshi", issuesReported: 9 },
+          { name: "Raj", issuesReported: 8 },
+          { name: "Dev", issuesReported: 5 },
+        ];
+
+        // Sort users based on issues reported (descending)
+        users.sort((a, b) => b.issuesReported - a.issuesReported);
+
+        // Create user cards
+        users.forEach((user) => {
+          const userCard = document.createElement("div");
+          userCard.classList.add("user-card");
+          userCard.innerHTML = `
+            <h3>${user.name}</h3>
+            <p>Issues Reported: ${user.issuesReported}</p>
+        `;
+          userList.appendChild(userCard);
+        });
+      });
+    </script>
+  </body>
+</html>
